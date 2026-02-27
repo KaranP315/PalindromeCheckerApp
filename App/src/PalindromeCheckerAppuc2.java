@@ -1,23 +1,23 @@
 public class PalindromeCheckerAppuc2 {
-    public class UseCase2PalindromeCheckerApp {
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
+        String input = "madam";
 
-            String word = "madam";
+        boolean isPalindrome = true;
 
-            String reversed = "";
+        for (int i = 0; i < input.length() / 2; i++) {
 
-            for (int i = word.length() - 1; i >= 0; i--) {
-                reversed = reversed + word.charAt(i);
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
             }
+        }
 
-            if (word.equals(reversed)) {
-                System.out.println(word + " is a Palindrome.");
-            } else {
-                System.out.println(word + " is NOT a Palindrome.");
-            }
-
+        if (isPalindrome) {
+            System.out.println(input + " is a Palindrome.");
+        } else {
+            System.out.println(input + " is NOT a Palindrome.");
         }
     }
 }
