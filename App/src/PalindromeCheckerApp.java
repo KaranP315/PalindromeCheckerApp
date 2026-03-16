@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-public class PalindromeCheckerApp {
-
+public class UseCase9PalindromeCheckerApp
     // Recursive method to check palindrome
     public static boolean isPalindrome(String str, int start, int end) {
 
