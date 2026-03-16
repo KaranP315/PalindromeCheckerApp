@@ -1,40 +1,38 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class UseCase6PalindromeCheckerApp {
+public class PalindromeCheckerApp
+    // Recursive method to check palindrome
+    public static boolean isPalindrome(String str, int start, int end) {
+
+        // Base condition
+        if (start >= end) {
+            return true;
+        }
+
+        // Compare characters
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        // Recursive call
+        return isPalindrome(str, start + 1, end - 1);
+    }
 
     public static void main(String[] args) {
 
-        // Define the input string
-        String input = "civic";
+        Scanner scanner = new Scanner(System.in);
 
-        // Create Queue (FIFO)
-        Queue<Character> queue = new LinkedList<>();
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
 
-        // Create Stack (LIFO)
-        Stack<Character> stack = new Stack<>();
+        boolean result = isPalindrome(input, 0, input.length() - 1);
 
-        // Insert characters into both queue and stack
-        for (char c : input.toCharArray()) {
-            queue.add(c);     // enqueue
-            stack.push(c);    // push
+        if (result) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is not a palindrome.");
         }
 
-        // Flag to check palindrome
-        boolean isPalindrome = true;
-
-        // Compare characters
-        while (!queue.isEmpty()) {
-            char fromQueue = queue.remove(); // dequeue
-            char fromStack = stack.pop();    // pop
-
-            if (fromQueue != fromStack) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        // Output result
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+        scanner.close();
     }
 }
